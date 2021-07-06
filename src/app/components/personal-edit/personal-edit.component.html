@@ -1,0 +1,25 @@
+<div class="container">
+    <form class="top" [formGroup]="personalForm" (ngSubmit)="onAddPersonal()">
+        <h2 class="element" style="width: 450px">Персоналия</h2>
+        <p>
+            <input placeholder="Имя" formControlName="name" [ngClass]="{'has-error': personalForm.get('name')?.invalid &&
+            personalForm.get('name')?.touched}">
+        </p>
+        <p>
+            <input placeholder="Фамилия" formControlName="surname" [ngClass]="{'has-error': personalForm.get('surname')?.invalid &&
+            personalForm.get('surname')?.touched}">
+        </p>
+        <p>
+            <input placeholder="Отчество" formControlName="patronymic">
+        </p>
+        <div>
+            <select id="type" formControlName="type">
+                <option name="typename" *ngFor="let type of types" [ngValue]='type.id' >{{type.name}}</option>
+              </select>
+        </div>
+        <br>
+        <input class="btn btn-success" style="width: 200px;" type="button" value="Сохранить заметку " [disabled]='personalForm.invalid' (click)='onAddPersonal()'>
+        <br> <br>
+        <input class="btn btn-danger ml-3" style="width: 200px;" type="button" value="Удалить заметку " (click)="onDeletePersonal()" *ngIf="id">
+    </form>
+</div>

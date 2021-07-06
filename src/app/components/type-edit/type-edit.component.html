@@ -1,0 +1,12 @@
+<div class="container">
+    <form [formGroup]='typesForm'>
+        <p>Название типа: <input class="input-group-text" id="basic-addon3" type="text" name="typename" formControlName="name" [ngClass]="{
+            'has-error':
+            typesForm.get('name')?.invalid &&
+            typesForm.get('name')?.touched}"></p>
+        <input class="btn btn-outline-primary" type="button" value="Сохранить тип" (click)='onAddType()'>
+        <button type="button" class="btn btn-danger ms-2" *ngIf="id" (click)="onDeleteType()">
+            Удалить
+        </button>
+    </form>
+</div>

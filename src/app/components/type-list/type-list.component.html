@@ -1,0 +1,22 @@
+<div class="container">
+    <button class="btn btn-primary float-end" (click)='linkToItem()'>
+        Новый
+      </button>
+    <h1 style="margin-top:20px ;">Словарь типов</h1>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col" style="width: 50px; text-align: center;">id</th>
+                <th scope="col">Имя типа</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let type of types" (click)="linkToItem(type.id)">
+                <th scope="row" style="text-align: center;">{{type.id}}</th>
+                <td>{{type.name}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
